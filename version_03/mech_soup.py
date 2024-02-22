@@ -6,7 +6,7 @@ import mechanicalsoup
 browser = mechanicalsoup.StatefulBrowser()
 base_url = "http://olympus.realpython.org"
 url = base_url + "/login"
-login_page = browser.get(url)
+login_page = browser.open(url)
 login_html = login_page.soup
 
 # 2
@@ -23,8 +23,9 @@ profiles_page = browser.submit(form, login_page.url)
 
 
 """programmatically obtain the URL for each link on the /profiles page"""
-
-links_list = profiles_page.soup.select("a")
+profiles_html = profiles_page.soup
+print(profiles_html.title)
+links_list = profiles_html.select("a")
 
 for link in links_list:
   address = base_url + link["href"]
