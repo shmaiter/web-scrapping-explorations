@@ -1,6 +1,8 @@
 import mechanicalsoup
 import time
 
+"""Repeatedly request data from a website to check for updates"""
+
 browser = mechanicalsoup.StatefulBrowser()
 
 for _ in range(4):
